@@ -2,31 +2,41 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 
 public class EnigmaFrame {
+    private JFrame frame;
+    private JComboBox<String> inner;
+    private JComboBox<String> middle;
+    private JComboBox<String> outer;
+    private JTextField initialPos;
+    private JButton encrypt;
+    private JButton decrypt;
+    private JTextArea input;
+    private JTextArea output;
 
     public EnigmaFrame() {
-        JFrame frame = new JFrame();
+        frame = new JFrame();
         frame.setTitle("Enigma GUI"); 
         frame.setSize(900, 450); 
         frame.setLocation(200, 200);  
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 
-        JComboBox<Integer> inner = new JComboBox<>();
-        JComboBox<Integer> middle = new JComboBox<>();
-        JComboBox<Integer> outer = new JComboBox<>();
+        inner = new JComboBox<>();
+        middle = new JComboBox<>();
+        outer = new JComboBox<>();
 
         for (int i = 1; i <= 5; i++) {
-            inner.addItem(i);
-            middle.addItem(i);
-            outer.addItem(i);
+            inner.addItem(String.valueOf(i));
+            middle.addItem(String.valueOf(i));
+            outer.addItem(String.valueOf(i));
         }
         
-        JTextField initialPos = new JTextField(3);
+        initialPos = new JTextField(3);
 
-        JButton encrypt = new JButton("encrypt");
-        JButton decrypt = new JButton("decrypt");
+        encrypt = new JButton("encrypt");
+        decrypt = new JButton("decrypt");
 
-        JTextArea input = new JTextArea(10, 60);
-        JTextArea output = new JTextArea(10,60);
+        input = new JTextArea(10, 60);
+        output = new JTextArea(10,60);
+        output.setEditable(false);
 
         JPanel top = new JPanel();
         JPanel center = new JPanel();
@@ -62,6 +72,38 @@ public class EnigmaFrame {
 
         frame.setVisible(true);
 
+    }
+
+    public String getInner() {
+        return (String) inner.getSelectedItem();
+    }
+
+    public String getMiddle() {
+        return (String) middle.getSelectedItem();
+    }
+
+    public String getOuter() {
+        return (String) outer.getSelectedItem();
+    }
+
+    public String getInitialPosition() {
+        return initialPos.getText();
+    }
+
+    public String getInputText() {
+        return input.getText();
+    }
+
+    public JButton getEncryptButton() {
+        return encrypt;
+    }
+
+    public JButton getDecryptButton() {
+        return decrypt;
+    }
+
+    public void setOutputText(String text) {
+        output.setText(text);
     }
 
 }
