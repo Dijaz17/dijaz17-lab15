@@ -13,6 +13,12 @@ public class EnigmaFrame {
         JComboBox<Integer> inner = new JComboBox<>();
         JComboBox<Integer> middle = new JComboBox<>();
         JComboBox<Integer> outer = new JComboBox<>();
+
+        for (int i = 1; i <= 5; i++) {
+            inner.addItem(i);
+            middle.addItem(i);
+            outer.addItem(i);
+        }
         
         JTextField initialPos = new JTextField(3);
 
