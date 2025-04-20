@@ -10,7 +10,7 @@ public class EnigmaGUI {
                 enigmaFrame.getOuter(),
                 enigmaFrame.getInitialPosition(),
                 "encrypt",
-                enigmaFrame.getInputText()
+                enigmaFrame.getInputText().toUpperCase()
             };
 
             enigmaFrame.setOutputText(Comms.run(inputArgs));
@@ -23,7 +23,7 @@ public class EnigmaGUI {
                 enigmaFrame.getOuter(),
                 enigmaFrame.getInitialPosition(),
                 "decrypt",
-                enigmaFrame.getInputText()
+                enigmaFrame.getInputText().toUpperCase()
             };
 
             enigmaFrame.setOutputText(Comms.run(inputArgs));
